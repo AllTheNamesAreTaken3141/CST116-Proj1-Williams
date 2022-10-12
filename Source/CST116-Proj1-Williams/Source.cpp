@@ -27,9 +27,28 @@ void colorPrint(HANDLE console, string text, int color = 15, bool linebreak = tr
 //text (string): The text to be printed. Don't put a newline at the end.
 //color (int): The color code of the text. Optional, defaults to white.
 //newline (bool): Whether to end the line after printing but before input. Optional, defaults to false.
-string getInput(HANDLE console, string text, int color = 15, bool linebreak = false)
+string getStringInput(HANDLE console, string text, int color = 15, bool linebreak = false)
 {
 	string input;
+	if (linebreak) //Add a line break to the end of the text unless told not to
+	{
+		text += "\n";
+	}
+	SetConsoleTextAttribute(console, color); //Use black magic (native OS commands) to change the color of any text we print.
+	cout << text;
+	SetConsoleTextAttribute(console, 15); //Use more black magic to set the color back to white so that we don't start randomly printing other colors.
+	cin >> input;
+	return input; //Send the input to whatever variable the function is passed to.
+}
+
+//Prints a prompt in full color, then gets a floaT input from the user. Returns a string and takes up to 4 parameters.
+//console (HANDLE): Used for colored text. Always set it to hConsole and don't worry about it.
+//text (string): The text to be printed. Don't put a newline at the end.
+//color (int): The color code of the text. Optional, defaults to white.
+//newline (bool): Whether to end the line after printing but before input. Optional, defaults to false.
+float getFloatInput(HANDLE console, string text, int color = 15, bool linebreak = false)
+{
+	float input;
 	if (linebreak) //Add a line break to the end of the text unless told not to
 	{
 		text += "\n";
@@ -48,21 +67,25 @@ int maxLength(vector <string> data) {
 }
 
 //Really, *really* fancy table printer.
-void dynamicTable(HANDLE console, vector <vector <string> > data, size_t maxWidth = -1, int headingColor = 15, int dataColor = 15, int verticalColor = 15, int horizontalColor = 15)
+void dynamicTable(HANDLE console, vector <vector <string> > data, int headingColor = 15, int dataColor = 15, int verticalColor = 15)
 {
 	vector <int> columnWidths; //holds the maximum length of each column
 	
 	for (vector <string> i : data)
 	{
+
 		columnWidths.push_back(maxLength(i));
 	}
 
-	for (int r = 0; r < data[0].size(); r++)
+	cout.setf(ios::left, ios::adjustfield);
+
+	for (int r = 0; r < data[0].size()-1; r++)
 	{
 		colorPrint(console, "|", verticalColor, false);
 		for (int c = 0; c < data.size(); c++)
 		{
-				
+			cout.width(columnWidths[c]);
+			colorPrint(console, data[c][r], dataColor, false);
 			colorPrint(console, "|", verticalColor, false);
 		}
 		cout << endl;
@@ -73,15 +96,20 @@ int main()
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	vector <string> names = { "Name" };
-	vector <string> ages = { "Age" };
-	vector <string> gpas = { "GPA" };
+	vector <string> names = { "Name",};
+	vector <string> ages = { "Age",};
+	vector <string> gpas = { "GPA",};
+
+	vector <vector <string> > data = {names, ages, gpas};
+
+	dynamicTable(hConsole, data);
+
 
 	for (int i = 0; i < 4; i++)
 	{
-		names.push_back(getInput(hConsole, "Enter your name: "));
-		ages.push_back(getInput(hConsole, "Enter your age: "));
-		gpas.push_back(getInput(hConsole, "Enter your GPA: "));
+		names.push_back(getStringInput(hConsole, "Enter your name: "));
+		ages.push_back(getStringInput(hConsole, "Enter your age: "));
+		gpas.push_back(getStringInput(hConsole, "Enter your GPA: "));
 	}
 
 	return 0;
