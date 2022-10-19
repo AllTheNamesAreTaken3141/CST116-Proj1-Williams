@@ -1,0 +1,36 @@
+Please enter your name: Bob
+Please enter your income: 1294.268
+Please enter your GPA: 3.1
+Please enter your name: Tim
+Please enter your income: forty-seven dollars and eleven cents
+Error: Your input must be a number. Please try again.
+Please enter your income: 47.11
+Please enter your GPA: 3.28
+Please enter your name: Glornax the Destroyer
+Please enter your income: 6.66
+Please enter your GPA: 0
+Please enter your name: Steve
+Please enter your income: 34681.2
+Please enter your GPA: 4.1
+|Name:                |Income:  |GPA:|
+|Bob                  |$1294.27 |3.10|
+|Tim                  |$47.11   |3.28|
+|Glornax the Destroyer|$6.66    |0.00|
+|Steve                |$34681.20|4.10|
+Please enter your name: Bob
+Please enter your income: 1294.27
+Please enter your age: 19
+Please enter your name: Tim
+Please enter your income: 47.11
+Please enter your age: 19
+Please enter your name: Glornax the Destroyer
+Please enter your income: 6.66
+Please enter your age: 21527
+Please enter your name: Steve
+Please enter your income: 34681.20
+Please enter your age: 34
+|Name:                |Income:  |Age:    |
+|Bob                  |$1294.27 |19.00   |
+|Tim                  |$47.11   |19.00   |
+|Glornax the Destroyer|$6.66    |21527.00|
+|Steve                |$34681.20|34.00   |
