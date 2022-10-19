@@ -1,4 +1,15 @@
 ﻿  Source.cpp
-C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\Source.cpp(47,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\Source.cpp(22,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\Source.cpp(23,31): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\Source.cpp(196,61): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\Source.cpp(198,41): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
   Source.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   CST116-Proj1-Williams.vcxproj -> C:\Users\hey-t\source\repos\CST116-Proj1-Williams\Source\CST116-Proj1-Williams\x64\Debug\CST116-Proj1-Williams.exe
