@@ -10,7 +10,7 @@ Is this program needlessly complicated and concerningly overengineered? Yes, yes
 
 #include <iostream> //Standard input/output stuff. You know what it does.
 #include <iomanip> //Member functions and manipulators.
-#include <sstream> //Adds stringstreams. Literally saved my life when it came to rounding.
+#include <sstream> //Adds stringstreams. Literally saved my life when it came to rounding numbers.
 #include <windows.h> //Used for printing fancy colored text.
 #include <vector> //Vectors are lists of things...including other vectors.
 
@@ -168,7 +168,7 @@ void dynamicTableMember(vector <vector <string> > data, int headingColor = 15, i
 			if (r == 0)
 			{
 				colorPrint(data[c][r], headingColor, false);
-
+				r--;
 			}
 			else {
 				colorPrint(data[c][r], dataColor, false);
@@ -183,7 +183,7 @@ void dynamicTableMember(vector <vector <string> > data, int headingColor = 15, i
 int main()
 {
 	//These vectors contain the strings that will go into the table. DynamicTable uses the first item in each column as the heading, so they're predefined with the correct string.
-	vector <string> names = { "Name:" };
+	vector <int> names = { "Name:" };
 	vector <string> tableIncomes = { "Income:" };
 	vector <string> tableAges = { "Age:" };
 	vector <string> tableGPAs = { "GPA:" };
