@@ -29,5 +29,8 @@
     <Text Include="CST116_Lab1_Williams_AGILE.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="dynamicTable_PC.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

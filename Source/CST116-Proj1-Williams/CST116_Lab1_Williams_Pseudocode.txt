@@ -1,0 +1,19 @@
+Note: I'm not going to pseudocode a lot of the minor functions (colored printing, finding lengths, etc), since either I've already written them for another another project or they're simple enough that they don't need advance planning.
+
+Program start:
+
+Create string vectors for names, tableIncomes, tableGPAs, and tableAges; set the first item of each to the name of the category.
+Create float vectors to temporarily hold the values for incomes, GPAs, and ages.
+
+Get user input for a name (string), income (float), and GPA (float); store each one in their respective vectors. Do this 4 times.
+
+Fill the tableIncomes and tableGPAs vectors by taking each income/GPA float, rounding it to two places, truncating any trailing zeroes, converting it to a string, and pushing it to its respective vector. [Incomes are preceded by a $]
+
+Construct a GPATable vector containing names, tableIncomes, and tableGPAs (in that order).
+Use dynamicTable (See dynamicTable_PC.txt for how tablePrinter works. Yes, it's that complicated.) to print the GPATable vector as a table.
+
+Reset names, incomes, and tableIncomes to their original values.
+
+Repeat the above using ages in place of incomes to construct and print the AgeTable.
+
+End program.

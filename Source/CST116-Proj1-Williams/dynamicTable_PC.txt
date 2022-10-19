@@ -1,0 +1,25 @@
+﻿dnamicTable is a function that prints formatted tables from a 2d vector:
+Required parameters: <data>, a vector that contains vectors that contains strings, and that represents the entire table.
+Optional parameters: modifers for heading color, data color, vertical separator color, and vertical separator character.
+
+<data> is organized as follows:
+
+  d[0]    d[1]    d[2]    Each vector nested in <data> is a column in the table
+┌-──┴───┬-──┴───┬-──┴───┐
+│d[0][0]│d[1][0]│d[2][0]│ The first element in each nested vector is the heading for that column
+│d[0][1]│d[1][1]│d[2][1]│ The rest of the elements are the data in that column.
+│d[0][2]│d[1][2]│d[2][2]│
+│d[0][3]│d[1][3]│d[2][3]│
+└───────┴───────┴───────┘
+
+dynamicTable begins by looping through each vector in <data>. It finds the length of the longest string in each vector (which is how wide the column needs to be), and pushes them into another vector, <columnWidths>. Finally, it formats cout to align text to the left.
+
+Next, it uses <r> to loop through <data> sideways (i.e. instead of looping throught d[0], d[1], d[2]..., it loops through d[x][0], d[x][1], d[x][3]...), so that each value of r represents one row of the table.
+
+Inside the <r> loop, it prints a vertical separator at the left edge of the table, then runs another loop, which uses <c> to increment through each element in the row.
+
+Inside the <c> loop, it uses <c> and <r> (in that order) to locate a specific string, then does the following:
+	Finds the width of that string's column by looking up <columnWidths[c]>.
+	Uses a manipulator to set the width of cout to the column's width.
+	Print the item using dataColor, or headingColor when printing the 1st row.
+	Print a vertical separator between columns.
